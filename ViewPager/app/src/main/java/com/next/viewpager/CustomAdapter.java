@@ -44,7 +44,6 @@ public class CustomAdapter extends PagerAdapter {
         ImageView imageView = (ImageView) itemView.findViewById(R.id.imageView);
         imageView.setImageResource(mResources[position]);
         container.addView(itemView);
-
         return itemView;
     }
 

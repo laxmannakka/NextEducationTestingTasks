@@ -39,10 +39,11 @@ public class FirstFragment extends Fragment {
     // Inflate the view for the fragment based on layout XML
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             Bundle savedInstanceState)
+    {
         View view = inflater.inflate(R.layout.fragment_first, container, false);
-        TextView tvLabel = (TextView) view.findViewById(R.id.textview);
-        tvLabel.setText(page + " -- " + title);
+      //  TextView tvLabel = (TextView) view.findViewById(R.id.textview);
+     //   tvLabel.setText(page + " -- " + title);
         return view;
     }
 }

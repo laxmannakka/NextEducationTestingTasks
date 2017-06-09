@@ -1,11 +1,14 @@
 package com.next.viewpager.fragments;
 
+
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.TableLayout;
 
 import com.next.viewpager.R;
 import com.next.viewpager.fragments.FirstFragment;
@@ -17,14 +20,18 @@ public class ViewPagerWithFragments extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_pager_with_fragments);
+
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager2);
         adapterViewPager = new MyPagerAdapter(getSupportFragmentManager());
+
         viewPager.setAdapter(adapterViewPager);
+        TabLayout tab = (TabLayout) findViewById(R.id.tablayout);
+        tab.setupWithViewPager(viewPager);
 
 
     }
     public  class MyPagerAdapter extends FragmentPagerAdapter {
-        private  int NUM_ITEMS = 2;
+        private  int NUM_ITEMS = 4;
 
         public MyPagerAdapter(FragmentManager fragmentManager) {
             super(fragmentManager);
@@ -44,6 +51,10 @@ public class ViewPagerWithFragments extends AppCompatActivity {
                     return FirstFragment.newInstance(0, "Page # 1");
                 case 1: // Fragment # 0 - This will show FirstFragment different title
                     return FirstFragment.newInstance(1, "Page # 2");
+                case 2: // Fragment # 0 - This will show FirstFragment
+                    return FirstFragment.newInstance(0, "Page # 1");
+                case 3: // Fragment # 0 - This will show FirstFragment
+                    return FirstFragment.newInstance(0, "Page # 1");
                 default:
                     return null;
             }
